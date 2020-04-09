@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Coral Reef City</title>
+    <meta name="description" content="Coral Reef City" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="tree-obj" src="/coralModel/tinker.obj"></a-asset-item>
+        <a-asset-item id="tree-mtl" src="/coralModel/obj.mtl"></a-asset-item>
+      </a-assets>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.1 0.1 0.1" position="0 0 0" rotation="-90 0 0"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.15 0.15 0.15" position="-30 0 10" rotation="-90 0 0"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.3 0.3 0.3" position="-10 -5 -70" rotation="-90 0 0"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.3 0.3 0.3" position="-15 -15 -50" rotation="-90 0 0"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.15 0.15 0.15" position="0 0 -15" rotation="-90 0 0"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.2 0.2 0.2" position="10 0 -20" rotation="-90 0 0"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="1 1 1" position="-200 -10 3" rotation="-90 0 90"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.2 0.2 0.2" position="-50 0 3" rotation="-90 0 90"></a-entity>
+
+      <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" scale="0.3 0.3 0.3" position="-120 0 10" rotation="-90 0 45"></a-entity>
+
+      <!-- ocean -->
+      <a-entity
+        id="ocean"
+        ocean="density: 50; width: 50; depth: 100; speed: 3"
+        material="color: #9CE3F9; opacity: 0.75; metalness: 0; roughness: 0"
+        rotation="-90 0 0"
+        position="1 5 1"
+      >
+      </a-entity>
+
+      <!-- cityscape -->
+      <a-entity
+        environment="preset: checkerboard;
+                               seed: 3;
+                               dressing: towers;
+                               dressingAmount: 300;
+                               dressingScale: 2;
+                               dressingVariance: 10 10 20;
+                               dressingUniformScale: false;
+                               fog: 0.9; 
+                               sky-color: aqua;
+                               groundTexture: none"
+      >
+      </a-entity>
+
+      <!-- coral -->
+      <a-tube
+        path="3 0 0, 3 2.5 -2.5, 3 5 -5, 1 10 -5"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="3 5 -5, 0 6 -7, -3 12 -8"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="3 2.5 -2.5, 0 6 -1, -1 8 -1"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="3 0 0, 3 2.5 2.5, 3 5 4, 5 12 4"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="3 5 4, 4.5 6 7, 6 10 8"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="3 2.5 2.5, 6 6 0.5, 8 9 0.5"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+
+      <a-tube
+        path="-7 0 0, -7 2.5 -2.5, -7 5 -5, -9 10 -5"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="-7 5 -5, -10 6 -7, -13 12 -8"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="-7 2.5 -2.5, -10 6 -1, -11 8 -1"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="-7 0 0, -7 2.5 2.5, -7 5 4, -5 12 4"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="-7 5 4, -5.5 6 7, -4 10 8"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+      <a-tube
+        path="-7 2.5 2.5, -4 6 0.5, -2 9 0.5"
+        radius="0.5"
+        material="color: #f96363"
+      ></a-tube>
+
+      <a-light type="point" intensity="1" position="2 4 4"></a-light>
+
+      <!-- hand -->
+      <a-entity id="teleHand" hand-controls="left"></a-entity>
+
+      <a-entity
+        id="blockHand"
+        hand-controls="right"
+        controller-cursor
+      ></a-entity>
+      
+      <!-- eye level camera -->
+      <a-camera look-controls position="0 7 0">
+        <a-cursor></a-cursor>
+      </a-camera>
+      
+      <!-- birds-eye camera -->
+  <!--     <a-camera look-controls position="0 30 0">
+        <a-cursor></a-cursor>
+      </a-camera>
+       -->
+    </a-scene>
+  </body>
+</html>
